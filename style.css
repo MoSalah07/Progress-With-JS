@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+.container .main-content {
+    display: grid;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    user-select: none;
+}
+
+.container .main-content > .box  {
+    color: #fff;
+    padding: 2rem;
+    min-height: 55vh;
+    border-radius: 8px;
+    box-shadow:  0px 5px 4px 1px rgb(0 0 0 /.3);
+    position: relative;
+}
+
+.container .main-content > .box:first-of-type {
+    background-color: hsl(31, 77%, 52%);
+    border: 1px solid hsl(31, 77%, 52%);
+}
+
+.container .main-content > .box:nth-of-type(2) {
+    background-color: hsl(184, 100%, 22%);
+    border: 1px solid hsl(184, 100%, 22%);
+}
+
+.container .main-content > .box:last-of-type {
+    background-color: hsl(179, 100%, 13%);
+    border: 1px solid hsl(179, 100%, 13%);
+}
+
+.container .main-content > .box > .thead {
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.container .main-content > .box > .thead > i {
+    font-size: 1.8rem;
+    position: absolute;
+    left: 30px;
+}
+
+.container .main-content > .box > .thead > span {
+    background-color: rgba(170, 169, 169, 0.432);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    z-index: -1;
+}
+
+.container .main-content > .box > .tbody {
+    margin: 5rem 0;
+}
+
+.container .main-content > .box > .tbody > h2{
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.container .main-content > .box > .tbody > h2 + p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/*========================== Prog =================================================  */
+.container .main-content > .box > .prog {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    left: 20px;
+    top: 0;
+}
+
+.container .main-content > .box > .prog > .outer {
+    width: 160px;
+    height: 160px;
+    box-shadow: 6px 6px 10px -1px rgb(0 0 0 / .15), -6px -6px 10px -1px rgb(255 255 255 / .7);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.container .main-content > .box > .prog > .outer > .inner {
+    width: 120px;
+    height: 120px;
+    box-shadow: inset 4px 4px 6px -1px rgb(0 0 0 / .2), 
+    inset -4px -4px 6px -1px rgb(255 255 255 / .7), 
+    -.5px -.5px 0px rgb(255 255 255 / 1),
+    -.5px -.5px 0px rgb(0 0 0 / .15),
+    0px 12px 10px -10px rgb(0 0 0 / 0.05);
+    border-radius: 50%;
+}
+
+.container .main-content > .box > .prog > .outer > .inner > div.number {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.container .main-content > .box > .prog > svg {
+    position: absolute;
+    top: 0;
+}
+
+.container .main-content > .box > .prog > svg > circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim-1 2s ease-in-out forwards;
+}
+
+.container .main-content > .box:nth-of-type(1) > .prog > svg > circle,
+.container .main-content > .box :last-of-type > .prog > svg > circle {
+    stroke: url(#MainColor);
+}
+
+
+
+
+@keyframes anim-1 {
+    100% {
+        stroke-dashoffset: 189;
+    }
+}
+
+.container .main-content > .box:nth-of-type(2) > .prog > svg > circle {
+    animation: anim-2 2s ease-in-out forwards;
+}
+
+@keyframes anim-2 {
+    100% {
+        stroke-dashoffset: 236;
+    }
+}
+
+.container .main-content > .box:nth-of-type(3) > .prog > svg > circle {
+    animation: anim-3 2s ease-in-out forwards;
+}
+
+@keyframes anim-3 {
+    100% {
+        stroke-dashoffset: 109;  /* 77%*/
+    }
+}
+
+
+/*================================= Media ====================================== */
+
+@media(min-width: 992px) {
+    .container .main-content {
+        grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 991px) {
+    .container .main-content {
+        grid-auto-flow: row;
+        grid-template-columns: 60%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .container .main-content > .box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .main-content > .box > .thead {
+        margin-bottom: 1rem !important;
+        text-align: center;
+    
+    }
+
+    .container .main-content > .box > .tbody {
+        margin-bottom: 2rem !important;
+        margin-top: 0 !important;
+        text-align: center;
+    }
+}
